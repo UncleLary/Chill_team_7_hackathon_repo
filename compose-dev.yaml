@@ -21,13 +21,14 @@ services:
       start_period: 10s
 
   reverse-proxy:
-    image: traefik:v3.1
+    image: traefik:v3.6.2
     restart: unless-stopped
     command:
       - --api.insecure=true
       - --accesslog=true      
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
+      - --providers.docker.endpoint=tcp://host.docker.internal:2375
 #      - “--entryPoints.websecure.address=:443”
 #      - “--certificateresolver.myresolver.acme.tlschallenge=true”
 #      - “—-certificateresolver.myresolver.acme.email=temo@toro.la”
