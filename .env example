@@ -1,0 +1,10 @@
+AUTH_LIFETIME_HOURS=8
+PROJECT_NAME=AILearnerSaaS
+POSTGRES_DBNAME=ailearner_dev
+POSTGRES_USER=postgres
+POSTGRES_PASS=example_password
+PASSWORD_AUTH_TOKEN_SECRET=this_is_an_example_secret
+HOST_UID=1000
+HOST_GID=1000
+APP_NAME=AILearnerSaaS
+APP_BASE_URL=http://localhost

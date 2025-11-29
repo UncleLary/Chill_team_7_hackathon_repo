@@ -205,3 +205,12 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+**/__pycache__/**
+_backend_logs/**
+/_postgres/**
+/_letsencrypt/**
+**/.env
+.vscode/launch.json
+**/.env_backup
+**/.env.prod

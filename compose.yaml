@@ -1,0 +1,104 @@
+services:
+  postgres:
+    image: postgres:17.0
+    shm_size: 128mb
+    restart: unless-stopped
+    ports:
+      - 5432:5432    
+    environment:
+      POSTGRES_USER: '${POSTGRES_USER}'
+      POSTGRES_PASSWORD: '${POSTGRES_PASS}'
+      POSTGRES_DB: '${POSTGRES_DBNAME}'
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./_postgres:/var/lib/postgresql/data
+    user: "${HOST_UID}:${HOST_GID}"
+    healthcheck:
+      test: "pg_isready -h postgres -U ${POSTGRES_USER}"
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 40s
+
+  reverse-proxy:
+    image: traefik:v3.1
+    restart: unless-stopped
+    command:
+      - --api.insecure=true
+      - --accesslog=true      
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+#      - “--entryPoints.websecure.address=:443”
+#      - “--certificateresolver.myresolver.acme.tlschallenge=true”
+#      - “—-certificateresolver.myresolver.acme.email=temo@toro.la”
+#      - “—-certificateresolver.myresolver.acme.storage=/letsencrypt/acme.json”
+      - --entrypoints.web.address=:80
+#      - “--entrypoints.web.http.redirections.entrypoint.to=websecure“
+#      - “--entrypoints.web.http.redirections.entrypoint.scheme=https“
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    volumes:
+      - ./_letsencrypt:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  backend:
+    image: ${PROJECT_NAME}/backend:latest
+    build: backend
+    restart: unless-stopped
+    deploy:
+      mode: replicated
+      replicas: 3
+    environment:
+      LOG_CFG_PATH: '/app/log_conf.yaml'
+      DB_CONNECTION: 'postgresql+asyncpg://${POSTGRES_USER}:${POSTGRES_PASS}@postgres:5432/${POSTGRES_DBNAME}'
+      AUTH_LIFETIME_HOURS: '${AUTH_LIFETIME_HOURS}'
+      PASSWORD_AUTH_TOKEN_SECRET: '${PASSWORD_AUTH_TOKEN_SECRET}'
+      APP_NAME: '${APP_NAME}'
+      APP_BASE_URL: '${APP_BASE_URL}'
+    volumes:
+      - ./_backend_logs:/logs      
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://127.0.0.1/api || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s    
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=PathPrefix(`/api`)"
+      - "traefik.http.middlewares.strip-api-prefix.stripprefix.prefixes=/api"
+      - "traefik.http.routers.backend.middlewares=strip-api-prefix@docker"
+
+  frontend:
+    image: ${PROJECT_NAME}/frontend:latest
+    cap_add:
+      - NET_ADMIN    
+    build: frontend
+    restart: unless-stopped
+    deploy:
+      mode: replicated
+      replicas: 3
+    environment:
+      APP_NAME: '${APP_NAME}'
+      APP_BASE_URL: '${APP_BASE_URL}'
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost || exit 1
+      interval: 60s
+      retries: 5
+      start_period: 20s
+      timeout: 10s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.frontend.rule=!PathPrefix(`/api`)"      
+
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+
