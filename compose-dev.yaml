@@ -12,6 +12,7 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - ./_postgres:/var/lib/postgresql/data
+      - ./db-init:/docker-entrypoint-initdb.d
     user: "${HOST_UID}:${HOST_GID}"
     healthcheck:
       test: "pg_isready -h postgres -U ${POSTGRES_USER}"
@@ -28,7 +29,7 @@ services:
       - --accesslog=true      
       - --providers.docker=true
       - --providers.docker.exposedbydefault=false
-      - --providers.docker.endpoint=tcp://host.docker.internal:2375
+      - ${TRAEFIK_HACK}
 #      - “--entryPoints.websecure.address=:443”
 #      - “--certificateresolver.myresolver.acme.tlschallenge=true”
 #      - “—-certificateresolver.myresolver.acme.email=temo@toro.la”
