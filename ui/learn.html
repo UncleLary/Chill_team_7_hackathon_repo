@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Question</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f5f5;
+      height: 100vh;
+      display: flex;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .left-panel {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 0;
+    }
+
+    .question-section {
+      flex: 1;
+      background: white;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-section {
+      flex: 1;
+      background: white;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .right-panel {
+      flex: 1;
+      background: white;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .question-title {
+      color: #0066cc;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .question-subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .question-text {
+      color: #333;
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .option:hover {
+      background-color: #f9f9f9;
+      border-color: #0066cc;
+    }
+
+    .option input[type="checkbox"] {
+      margin-top: 2px;
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+    }
+
+    .option-label {
+      flex: 1;
+      color: #333;
+      font-size: 14px;
+      cursor: pointer;
+      line-height: 1.4;
+    }
+
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .chat-header {
+      color: #555;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .message {
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .message.ai {
+      background-color: #e6f2ff;
+      color: #0066cc;
+      align-self: flex-start;
+      max-width: 90%;
+    }
+
+    .message.user {
+      background-color: #f0f0f0;
+      color: #333;
+      align-self: flex-end;
+      max-width: 90%;
+    }
+
+    .chat-input-area {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .chat-input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    .chat-input:focus {
+      outline: none;
+      border-color: #0066cc;
+      box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+    }
+
+    .chat-send-btn {
+      padding: 8px 12px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background-color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .chat-send-btn:hover {
+      background-color: #0052a3;
+    }
+
+    .pdf-viewer {
+      flex: 1;
+      background-color: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 20px;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .pdf-title {
+      color: #555;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .highlight {
+      background-color: #ffff00;
+      padding: 2px 4px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left Panel: Question and Chat -->
+    <div class="left-panel">
+      <!-- Question Section -->
+      <div class="question-section">
+        <div class="question-title">Snail Biology Question</div>
+        <div class="question-subtitle">Select ALL that apply:</div>
+
+        <div class="question-text">Which of the following are characteristics or features of snails?</div>
+
+        <div class="options">
+          <label class="option">
+            <input type="checkbox" id="opt-a">
+            <span class="option-label"><strong>A)</strong> Radula - A ribbon-like feeding organ used to scrape food</span>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" id="opt-b">
+            <span class="option-label"><strong>B)</strong> Mantle - Tissue that secretes the shell</span>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" id="opt-c">
+            <span class="option-label"><strong>C)</strong> Lungs - Used by land snails to breathe air</span>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" id="opt-d">
+            <span class="option-label"><strong>D)</strong> Bones - An internal skeletal system</span>
+          </label>
+
+          <label class="option">
+            <input type="checkbox" id="opt-e">
+            <span class="option-label"><strong>E)</strong> Muscular foot - Used for movement and locomotion</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Chat Section -->
+      <div class="chat-section">
+        <div class="chat-container">
+          <div class="chat-header">💬 AI Tutor Chat</div>
+          <div class="chat-messages" id="chatMessages">
+            <div class="message ai">Hi! I'm here to help you understand this question about snails. Feel free to ask me anything!</div>
+            <div class="message user">Can you explain what a radula is?</div>
+            <div class="message ai">Great question! The radula is a fascinating adaptation in mollusks like snails. It's a ribbon-like structure covered with tiny teeth made of chitin. Snails use it like a tongue to scrape algae and plant material off surfaces. Think of it like a built-in grater!</div>
+          </div>
+          <div class="chat-input-area">
+            <input type="text" class="chat-input" placeholder="Ask a question...">
+            <button class="chat-send-btn">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel: PDF Viewer -->
+    <div class="right-panel">
+      <div class="pdf-title">📄 Reference Material</div>
+      <div class="pdf-viewer">
+        <p>
+          Snails are fascinating gastropod mollusks with unique biological adaptations. The <span class="highlight">radula is a ribbon-like feeding organ covered with rows of tiny teeth that snails use to scrape food from surfaces</span>. This remarkable structure allows them to feed on algae, plant material, and detritus.
+        </p>
+
+        <p style="margin-top: 15px;">
+          The <span class="highlight">mantle is specialized tissue that lines the shell and secretes the calcium carbonate material that forms the snail's protective shell</span>. This shell grows throughout the snail's lifetime, expanding in a spiral pattern.
+        </p>
+
+        <p style="margin-top: 15px;">
+          Regarding respiration, <span class="highlight">land snails utilize lungs to breathe air, while aquatic snails typically use gills</span>. This adaptation allowed snails to colonize terrestrial environments.
+        </p>
+
+        <p style="margin-top: 15px;">
+          Unlike vertebrates, <span class="highlight">snails lack bones and instead have a soft body protected primarily by their shell</span>. Their skeleton is minimal, consisting mainly of cartilaginous structures in some species.
+        </p>
+
+        <p style="margin-top: 15px;">
+          The <span class="highlight">muscular foot is a broad, flat muscle at the base of the snail's body used for locomotion and movement</span>. By contracting muscles in the foot and secreting mucus, snails can glide across surfaces.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
