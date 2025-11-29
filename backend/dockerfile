@@ -1,0 +1,12 @@
+FROM python:3.11-alpine
+
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+COPY log_conf.yaml /app/log_conf.yaml
+COPY src /app/src
+WORKDIR /app/src
+
+EXPOSE 80
+
+CMD python -m uvicorn main:app --host 0.0.0.0 --port 80 --root-path /api --no-server-header
