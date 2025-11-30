@@ -82,7 +82,7 @@
 
     .question-text {
       color: #333;
-      font-size: 15px;
+      font-size: 25px;
       font-weight: 500;
       margin-bottom: 20px;
       line-height: 1.5;
@@ -234,6 +234,91 @@
       border-radius: 2px;
     }
   </style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<style>
+    .pdf-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 16px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+    }
+
+    .pdf-controls button {
+        padding: 8px 16px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .pdf-controls button:hover {
+        background: #0056b3;
+    }
+
+    .pdf-controls button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+    }
+
+    .page-info {
+        color: #555;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .zoom-controls {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .pdf-viewer {
+        background: #525659;
+        border-radius: 8px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 600px;
+        overflow: auto;
+    }
+
+    #pdf-canvas {
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        background: white;
+        display: block;
+max-width: 100%;
+    }
+
+    .loading {
+        color: #999;
+        font-size: 16px;
+    }
+
+    .error {
+        color: #dc3545;
+        padding: 20px;
+        text-align: center;
+        background: #f8d7da;
+        border-radius: 8px;
+        border: 1px solid #f5c6cb;
+    }
+</style>
+
+
+
 </head>
 <body>
   <div class="container">
@@ -241,37 +326,8 @@
     <div class="left-panel">
       <!-- Question Section -->
       <div class="question-section">
-        <div class="question-title">Snail Biology Question</div>
-        <div class="question-subtitle">Select ALL that apply:</div>
 
-        <div class="question-text">Which of the following are characteristics or features of snails?</div>
-
-        <div class="options">
-          <label class="option">
-            <input type="checkbox" id="opt-a">
-            <span class="option-label"><strong>A)</strong> Radula - A ribbon-like feeding organ used to scrape food</span>
-          </label>
-
-          <label class="option">
-            <input type="checkbox" id="opt-b">
-            <span class="option-label"><strong>B)</strong> Mantle - Tissue that secretes the shell</span>
-          </label>
-
-          <label class="option">
-            <input type="checkbox" id="opt-c">
-            <span class="option-label"><strong>C)</strong> Lungs - Used by land snails to breathe air</span>
-          </label>
-
-          <label class="option">
-            <input type="checkbox" id="opt-d">
-            <span class="option-label"><strong>D)</strong> Bones - An internal skeletal system</span>
-          </label>
-
-          <label class="option">
-            <input type="checkbox" id="opt-e">
-            <span class="option-label"><strong>E)</strong> Muscular foot - Used for movement and locomotion</span>
-          </label>
-        </div>
+        <div class="question-text">Is SQL considered a standard language, and by whom?</div>
       </div>
 
       <!-- Chat Section -->
@@ -291,31 +347,122 @@
       </div>
     </div>
 
-    <!-- Right Panel: PDF Viewer -->
-    <div class="right-panel">
-      <div class="pdf-title">📄 Reference Material</div>
-      <div class="pdf-viewer">
-        <p>
-          Snails are fascinating gastropod mollusks with unique biological adaptations. The <span class="highlight">radula is a ribbon-like feeding organ covered with rows of tiny teeth that snails use to scrape food from surfaces</span>. This remarkable structure allows them to feed on algae, plant material, and detritus.
-        </p>
 
-        <p style="margin-top: 15px;">
-          The <span class="highlight">mantle is specialized tissue that lines the shell and secretes the calcium carbonate material that forms the snail's protective shell</span>. This shell grows throughout the snail's lifetime, expanding in a spiral pattern.
-        </p>
-
-        <p style="margin-top: 15px;">
-          Regarding respiration, <span class="highlight">land snails utilize lungs to breathe air, while aquatic snails typically use gills</span>. This adaptation allowed snails to colonize terrestrial environments.
-        </p>
-
-        <p style="margin-top: 15px;">
-          Unlike vertebrates, <span class="highlight">snails lack bones and instead have a soft body protected primarily by their shell</span>. Their skeleton is minimal, consisting mainly of cartilaginous structures in some species.
-        </p>
-
-        <p style="margin-top: 15px;">
-          The <span class="highlight">muscular foot is a broad, flat muscle at the base of the snail's body used for locomotion and movement</span>. By contracting muscles in the foot and secreting mucus, snails can glide across surfaces.
-        </p>
-      </div>
+<div class="pdf-panel">
+    <h2 style="margin-bottom: 20px;">Materiały (PDF)</h2>
+    <div class="pdf-controls">
+        <button id="prev-page">← Poprzednia</button>
+        <span class="page-info">
+            Strona <span id="page-num">-</span> / <span id="page-count">-</span>
+        </span>
+        <button id="next-page">Następna →</button>
+        <div class="zoom-controls">
+            <button id="zoom-out">−</button>
+            <span class="page-info"><span id="zoom-level">75</span>%</span>
+            <button id="zoom-in">+</button>
+        </div>
     </div>
+    <div class="pdf-viewer" id="pdf-container">
+        <div class="loading">Ładowanie PDF...</div>
+    </div>
+</div>
+
+<script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    let pdfDoc = null;
+    let pageNum = 1;
+    let pageRendering = false;
+    let pageNumPending = null;
+    let scale = 0.75;
+
+    const container = document.getElementById('pdf-container');
+
+    function renderPage(num) {
+        pageRendering = true;
+        
+        pdfDoc.getPage(num).then(page => {
+            const canvas = document.getElementById('pdf-canvas');
+            const ctx = canvas.getContext('2d');
+            const viewport = page.getViewport({ scale: scale });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+
+            const renderTask = page.render(renderContext);
+
+            renderTask.promise.then(() => {
+                pageRendering = false;
+                if (pageNumPending !== null) {
+                    renderPage(pageNumPending);
+                    pageNumPending = null;
+                }
+            });
+        });
+
+        document.getElementById('page-num').textContent = num;
+    }
+
+    function queueRenderPage(num) {
+        if (pageRendering) {
+            pageNumPending = num;
+        } else {
+            renderPage(num);
+        }
+    }
+
+    function onPrevPage() {
+        if (pageNum <= 1) return;
+        pageNum--;
+        queueRenderPage(pageNum);
+        updateButtons();
+    }
+
+    function onNextPage() {
+        if (pageNum >= pdfDoc.numPages) return;
+        pageNum++;
+        queueRenderPage(pageNum);
+        updateButtons();
+    }
+
+    function updateButtons() {
+        document.getElementById('prev-page').disabled = pageNum <= 1;
+        document.getElementById('next-page').disabled = pageNum >= pdfDoc.numPages;
+    }
+
+    function updateZoom(delta) {
+        scale += delta;
+        scale = Math.max(0.5, Math.min(3, scale));
+        document.getElementById('zoom-level').textContent = Math.round(scale * 100);
+        queueRenderPage(pageNum);
+    }
+
+    document.getElementById('prev-page').addEventListener('click', onPrevPage);
+    document.getElementById('next-page').addEventListener('click', onNextPage);
+    document.getElementById('zoom-in').addEventListener('click', () => updateZoom(0.25));
+    document.getElementById('zoom-out').addEventListener('click', () => updateZoom(-0.25));
+
+    // Load the PDF
+    pdfjsLib.getDocument('sql.pdf').promise.then(pdf => {
+        pdfDoc = pdf;
+        document.getElementById('page-count').textContent = pdf.numPages;
+        
+        container.innerHTML = '<canvas id="pdf-canvas"></canvas>';
+        
+        renderPage(pageNum);
+        updateButtons();
+    }).catch(err => {
+        console.error('Error loading PDF:', err);
+        container.innerHTML = '<div class="error">Błąd: Nie można załadować pliku sql.pdf<br>Upewnij się, że plik znajduje się w tym samym katalogu.</div>';
+    });
+</script>
+
+   
+
   </div>
 </body>
 </html>
