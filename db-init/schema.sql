@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS public.questions (
   correct_answer  text NOT NULL,
   context         text NOT NULL DEFAULT '',
   created_at      timestamptz NOT NULL DEFAULT now(),
-  pdf_file        text NOT NULL
+  document_id     int4 not null
 );
 
 -- 2) HISTORIA ODPOWIEDZI (wiele prób)
@@ -87,3 +87,15 @@ CREATE INDEX IF NOT EXISTS chat_messages_session_time_idx
 
 CREATE INDEX IF NOT EXISTS chat_messages_question_idx
   ON public.chat_messages(question_id);
+
+-- 6) DOCUMENTS
+CREATE TABLE IF NOT EXISTS public.documents (
+  document_id    bigserial PRIMARY KEY,
+  name           text NOT NULL,
+  description    text NOT NULL DEFAULT '',
+  content_type   text NOT NULL,
+  data           bytea NOT NULL,
+  text_data      text NOT NULL,
+  rec_date       timestamptz NOT NULL DEFAULT now()
+);
+

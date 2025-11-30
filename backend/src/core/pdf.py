@@ -6,7 +6,7 @@ class PDFProcessor:
     def __init__(self) -> None:
         pass
 
-    def extract_text_with_markers(self, pdf_bytes: bytes) -> str:
+    async def extract_text_with_markers(self, pdf_bytes: bytes) -> str:
         """
         Extracts text from a PDF provided as bytes, inserting markers before paragraphs.
         
