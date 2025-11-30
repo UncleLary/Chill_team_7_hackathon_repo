@@ -1,0 +1,2 @@
+Return the same string as quoted below and nothing else:
+"{input}"
