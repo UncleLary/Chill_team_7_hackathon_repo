@@ -291,7 +291,7 @@
     renderLessons();
 
 async function getData() {
-  const response = await fetch('http://localhost:3000/modules');
+  const response = await fetch('http://localhost:3000/pdf');
   const data = await response.json();
   data.forEach(d => addLessonFromServer(d));
 }
