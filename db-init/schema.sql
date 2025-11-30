@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS public.chat_messages (
   session_id    uuid NOT NULL REFERENCES public.chat_sessions(id) ON DELETE CASCADE,
   role          text NOT NULL CHECK (role IN ('system','user','assistant','tool')),
   content       text NOT NULL,
-  question_id   uuid REFERENCES public.questions(id) ON DELETE SET NULL,
+  question_id   int4,
   metadata_json jsonb NOT NULL DEFAULT '{}'::jsonb,
   created_at    timestamptz NOT NULL DEFAULT now()
 );
