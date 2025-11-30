@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS public.questions (
 
 -- 2) HISTORIA ODPOWIEDZI (wiele prób)
 CREATE TABLE IF NOT EXISTS public.user_answers (
-  answer_id    bigserial PRIMARY KEY,
+  user_answer_id    bigserial PRIMARY KEY,
   question_id  int4,
   learner_key  uuid NOT NULL,
   user_answer  text NOT NULL,

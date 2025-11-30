@@ -3,7 +3,7 @@ from fastapi import FastAPI, Cookie
 
 from util.logging import setup_logging
 
-from api import auth, users, llm, documents, questions
+from api import auth, users, llm, documents, questions, user_answers
 from core.database import add_db_middleware
 
 setup_logging()
@@ -14,6 +14,7 @@ users.include_routers(app)
 llm.include_routers(app)
 documents.include_routers(app)
 questions.include_routers(app)
+user_answers.include_routers(app)
 
 @app.get("/api")
 async def root(ads_id: Annotated[str | None, Cookie()] = None):
