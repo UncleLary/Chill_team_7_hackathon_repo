@@ -23,179 +23,254 @@
   ],
   "question": [
     {
-      "title": "SQL basics and the SELECT statement",
-      "questions": [
-        {
-          "question": "What does SQL stand for?",
-          "answer": "SQL stands for Structured Query Language.",
-          "source_text": "•\nSQL stands for Structured Query Language\n•\nSQL lets you access and manipulate databases",
-          "page": 1,
-          "y_coordinates": {
-            "start": 245,
-            "end": 286
-          }
-        },
-        {
-          "question": "What is the SELECT statement used for, and what is the result called?",
-          "answer": "The SELECT statement selects data from a database, and the result is stored in a result table called the result-set.",
-          "source_text": "The SELECT statement is used to select data from a database. The result is stored in a result table, called the\nresult-set.",
-          "page": 2,
-          "y_coordinates": {
-            "start": 161,
-            "end": 188
-          }
-        },
-        {
-          "question": "In a SELECT statement, what does the asterisk (*) indicate?",
-          "answer": "It is a quick way of selecting all columns.",
-          "source_text": "Tip: The asterisk (*) is a quick way of selecting all columns!",
-          "page": 3,
-          "y_coordinates": {
-            "start": 348,
-            "end": 361
-          }
-        }
-      ]
+      "id": 1,
+      "pdfId": 1,
+      "topic": "SQL overview and standards",
+      "text": "What does SQL stand for?",
+      "answer": "SQL stands for Structured Query Language.",
+      "source_text": "SQL stands for Structured Query Language",
+      "page": 1,
+      "y_coordinates": { "start": 245, "end": 259 }
     },
     {
-      "title": "Filtering results: DISTINCT, quoting text, and AND logic",
-      "questions": [
-        {
-          "question": "What does the DISTINCT keyword do in a SELECT query?",
-          "answer": "It returns only distinct (different) values.",
-          "source_text": "The DISTINCT keyword can be used to return only distinct (different) values.",
-          "page": 4,
-          "y_coordinates": {
-            "start": 220,
-            "end": 233
-          }
-        },
-        {
-          "question": "In SQL, what kind of quotes are used around text values?",
-          "answer": "SQL uses single quotes around text values (many systems also accept double quotes).",
-          "source_text": "SQL uses single quotes around text values (most database systems will also accept double quotes).",
-          "page": 6,
-          "y_coordinates": {
-            "start": 90,
-            "end": 104
-          }
-        },
-        {
-          "question": "When does the AND operator include a record in the result?",
-          "answer": "A record is included only if both conditions are true.",
-          "source_text": "The AND operator displays a record if both the first condition and the second condition is true.",
-          "page": 7,
-          "y_coordinates": {
-            "start": 115,
-            "end": 129
-          }
-        }
-      ]
+      "id": 2,
+      "pdfId": 1,
+      "topic": "SQL overview and standards",
+      "text": "According to the notes, SQL is an ANSI standard. What does ANSI stand for?",
+      "answer": "ANSI stands for American National Standards Institute.",
+      "source_text": "SQL is an ANSI (American National Standards Institute) standard",
+      "page": 1,
+      "y_coordinates": { "start": 275, "end": 289 }
     },
     {
-      "title": "Sorting query results with ORDER BY",
-      "questions": [
-        {
-          "question": "By default, what order does ORDER BY sort records in?",
-          "answer": "Ascending order.",
-          "source_text": "The ORDER BY keyword sort the records in ascending order by default.",
-          "page": 8,
-          "y_coordinates": {
-            "start": 532,
-            "end": 546
-          }
-        },
-        {
-          "question": "How do you sort results by LastName in descending order (as shown in the example)?",
-          "answer": "Use: SELECT * FROM Persons ORDER BY LastName DESC.",
-          "source_text": "SELECT * FROM Persons\nORDER BY LastName DESC",
-          "page": 9,
-          "y_coordinates": {
-            "start": 686,
-            "end": 713
-          }
-        },
-        {
-          "question": "In the shown sorted result-set, which LastName appears first?",
-          "answer": "Svendson.",
-          "source_text": "2\nSvendson\nTove\nBorgvn 23",
-          "page": 10,
-          "y_coordinates": {
-            "start": 112,
-            "end": 124
-          }
-        }
-      ]
+      "id": 3,
+      "pdfId": 1,
+      "topic": "SQL overview and standards",
+      "text": "Which SQL statement is described as deleting an index?",
+      "answer": "DROP I�DEX - deletes an index.",
+      "source_text": "DROP I�DEX - deletes an index",
+      "page": 2,
+      "y_coordinates": { "start": 67, "end": 82 }
     },
     {
-      "title": "Modifying data: INSERT, UPDATE, and DELETE",
-      "questions": [
-        {
-          "question": "What INSERT statement is used to add a new row to the Persons table in the example?",
-          "answer": "INSERT INTO Persons VALUES (4,'Nilsen', 'Johan', 'Bakken 2', 'Stavanger').",
-          "source_text": "INSERT INTO Persons\nVALUES (4,'Nilsen', 'Johan', 'Bakken 2', 'Stavanger')",
-          "page": 11,
-          "y_coordinates": {
-            "start": 112,
-            "end": 138
-          }
-        },
-        {
-          "question": "What warning is given about omitting the WHERE clause in an UPDATE statement?",
-          "answer": "If you omit the WHERE clause, all records will be updated.",
-          "source_text": "�ote: Notice the WHERE clause in the UPDATE syn...ed. If you omit the WHERE clause, all records will be updated!",
-          "page": 12,
-          "y_coordinates": {
-            "start": 213,
-            "end": 241
-          }
-        },
-        {
-          "question": "How can you delete all rows in a table without deleting the table itself?",
-          "answer": "Use DELETE FROM table_name or DELETE * FROM table_name.",
-          "source_text": "DELETE FROM table_name                        or\nDELETE * FROM table_name",
-          "page": 14,
-          "y_coordinates": {
-            "start": 656,
-            "end": 698
-          }
-        }
-      ]
+      "id": 4,
+      "pdfId": 1,
+      "topic": "Selecting data with SELECT",
+      "text": "What is the SELECT statement used for?",
+      "answer": "It is used to select data from a database.",
+      "source_text": "The SELECT statement is used to select data from a database.",
+      "page": 2,
+      "y_coordinates": { "start": 160, "end": 174 }
     },
     {
-      "title": "Creating and changing structures: CREATE DATABASE/TABLE and ALTER TABLE",
-      "questions": [
-        {
-          "question": "What is the SQL syntax to create a new database?",
-          "answer": "CREATE DATABASE database_name.",
-          "source_text": "SQL CREATE DATABASE Syntax\nCREATE DATABASE database_name",
-          "page": 15,
-          "y_coordinates": {
-            "start": 114,
-            "end": 142
-          }
-        },
-        {
-          "question": "In the Persons table example, what data types are used for P_Id and the name/address fields?",
-          "answer": "P_Id is int. LastName, FirstName, Address, and City are varchar with a maximum length of 255 characters.",
-          "source_text": "The P_Id column is of type int and will hold a ...s are of type varchar with a maximum length of 255 characters.",
-          "page": 16,
-          "y_coordinates": {
-            "start": 155,
-            "end": 182
-          }
-        },
-        {
-          "question": "How do you add a DateOfBirth column to the Persons table, and what type is it?",
-          "answer": "ALTER TABLE Persons ADD DateOfBirth date. The column type is date.",
-          "source_text": "ALTER TABLE Persons\nADD DateOfBirth date",
-          "page": 17,
-          "y_coordinates": {
-            "start": 646,
-            "end": 673
-          }
-        }
-      ]
+      "id": 5,
+      "pdfId": 1,
+      "topic": "Selecting data with SELECT",
+      "text": "In the example, what SELECT statement is used to retrieve the LastName and FirstName columns from Persons?",
+      "answer": "SELECT LastName,FirstName FROM Persons",
+      "source_text": "SELECT LastName,FirstName FROM Persons",
+      "page": 2,
+      "y_coordinates": { "start": 625, "end": 636 }
+    },
+    {
+      "id": 6,
+      "pdfId": 1,
+      "topic": "Selecting data with SELECT",
+      "text": "What does the tip say the asterisk (*) is a quick way of doing?",
+      "answer": "Selecting all columns.",
+      "source_text": "Tip: The asterisk (*) is a quick way of selecting all columns!",
+      "page": 3,
+      "y_coordinates": { "start": 218, "end": 231 }
+    },
+    {
+      "id": 7,
+      "pdfId": 1,
+      "topic": "DISTINCT and WHERE filtering",
+      "text": "What is the purpose of the DISTINCT keyword?",
+      "answer": "It returns only distinct (different) values.",
+      "source_text": "The DISTINCT keyword can be used to return only distinct (different) values.",
+      "page": 4,
+      "y_coordinates": { "start": 219, "end": 234 }
+    },
+    {
+      "id": 8,
+      "pdfId": 1,
+      "topic": "DISTINCT and WHERE filtering",
+      "text": "What is the WHERE clause used to do?",
+      "answer": "It is used to extract only those records that fulfill a specified criterion.",
+      "source_text": "The WHERE clause is used to extract only those records that fulfill a specified criterion.",
+      "page": 5,
+      "y_coordinates": { "start": 86, "end": 100 }
+    },
+    {
+      "id": 9,
+      "pdfId": 1,
+      "topic": "DISTINCT and WHERE filtering",
+      "text": "According to the notes, should numeric values be enclosed in quotes?",
+      "answer": "No. Numeric values should not be enclosed in quotes.",
+      "source_text": "Although, numeric values should not be enclosed in quotes.",
+      "page": 6,
+      "y_coordinates": { "start": 117, "end": 128 }
+    },
+    {
+      "id": 10,
+      "pdfId": 1,
+      "topic": "Combining conditions and sorting results",
+      "text": "When does the AND operator display a record?",
+      "answer": "It displays a record if both the first condition and the second condition is true.",
+      "source_text": "The AND operator displays a record if both the first condition and the second condition is true.",
+      "page": 7,
+      "y_coordinates": { "start": 132, "end": 146 }
+    },
+    {
+      "id": 11,
+      "pdfId": 1,
+      "topic": "Combining conditions and sorting results",
+      "text": "When does the OR operator display a record?",
+      "answer": "It displays a record if either the first condition or the second condition is true.",
+      "source_text": "The OR operator displays a record if either the first condition or the second condition is true.",
+      "page": 7,
+      "y_coordinates": { "start": 143, "end": 157 }
+    },
+    {
+      "id": 12,
+      "pdfId": 1,
+      "topic": "Combining conditions and sorting results",
+      "text": "What is the default sort order when using ORDER BY?",
+      "answer": "Ascending order by default.",
+      "source_text": "The ORDER BY keyword sort the records in ascending order by default.",
+      "page": 8,
+      "y_coordinates": { "start": 512, "end": 526 }
+    },
+    {
+      "id": 13,
+      "pdfId": 1,
+      "topic": "Combining conditions and sorting results",
+      "text": "In the ORDER BY DESC example, which SQL statement is used to sort persons descending by last name?",
+      "answer": "SELECT * FROM Persons ORDER BY LastName DESC",
+      "source_text": "ORDER BY LastName DESC",
+      "page": 9,
+      "y_coordinates": { "start": 622, "end": 633 }
+    },
+    {
+      "id": 14,
+      "pdfId": 1,
+      "topic": "Modifying data (INSERT, UPDATE, DELETE)",
+      "text": "What VALUES clause is used to insert a new row with P_Id 4 (Nilsen, Johan) into the Persons table?",
+      "answer": "VALUES (4,'Nilsen', 'Johan', 'Bakken 2', 'Stavanger')",
+      "source_text": "VALUES (4,'Nilsen', 'Johan', 'Bakken 2', 'Stavanger')",
+      "page": 11,
+      "y_coordinates": { "start": 127, "end": 139 }
+    },
+    {
+      "id": 15,
+      "pdfId": 1,
+      "topic": "Modifying data (INSERT, UPDATE, DELETE)",
+      "text": "What is the UPDATE statement used to do?",
+      "answer": "Update existing records in a table.",
+      "source_text": "The UPDATE statement is used to update existing records in a table.",
+      "page": 12,
+      "y_coordinates": { "start": 73, "end": 87 }
+    },
+    {
+      "id": 16,
+      "pdfId": 1,
+      "topic": "Modifying data (INSERT, UPDATE, DELETE)",
+      "text": "What warning is given about omitting the WHERE clause in an UPDATE statement?",
+      "answer": "If you omit the WHERE clause, all records will be updated.",
+      "source_text": "If you omit the WHERE clause, all records will be updated!",
+      "page": 12,
+      "y_coordinates": { "start": 227, "end": 241 }
+    },
+    {
+      "id": 17,
+      "pdfId": 1,
+      "topic": "Modifying data (INSERT, UPDATE, DELETE)",
+      "text": "What is the DELETE statement used to do?",
+      "answer": "Delete rows in a table.",
+      "source_text": "The DELETE statement is used to delete rows in a table.",
+      "page": 13,
+      "y_coordinates": { "start": 519, "end": 533 }
+    },
+    {
+      "id": 18,
+      "pdfId": 1,
+      "topic": "Modifying data (INSERT, UPDATE, DELETE)",
+      "text": "What section title introduces the idea of deleting all rows in a table without deleting the table?",
+      "answer": "Delete All Rows",
+      "source_text": "Delete All Rows",
+      "page": 14,
+      "y_coordinates": { "start": 580, "end": 599 }
+    },
+    {
+      "id": 19,
+      "pdfId": 1,
+      "topic": "Defining structure (CREATE and ALTER)",
+      "text": "What is the CREATE DATABASE statement used for?",
+      "answer": "It is used to create a database.",
+      "source_text": "The CREATE DATABASE statement is used to create a database.",
+      "page": 15,
+      "y_coordinates": { "start": 73, "end": 87 }
+    },
+    {
+      "id": 20,
+      "pdfId": 1,
+      "topic": "Defining structure (CREATE and ALTER)",
+      "text": "In the example, what database name is created with CREATE DATABASE?",
+      "answer": "my_db",
+      "source_text": "CREATE DATABASE my_db",
+      "page": 15,
+      "y_coordinates": { "start": 189, "end": 201 }
+    },
+    {
+      "id": 21,
+      "pdfId": 1,
+      "topic": "Defining structure (CREATE and ALTER)",
+      "text": "What is the CREATE TABLE statement used to do?",
+      "answer": "Create a table in a database.",
+      "source_text": "The CREATE TABLE statement is used to create a table in a database.",
+      "page": 15,
+      "y_coordinates": { "start": 278, "end": 292 }
+    },
+    {
+      "id": 22,
+      "pdfId": 1,
+      "topic": "Defining structure (CREATE and ALTER)",
+      "text": "In the CREATE TABLE example, what data types are used for P_Id compared to LastName/FirstName/Address/City?",
+      "answer": "P_Id is int; the others are varchar(255).",
+      "source_text": "The P_Id column is of type int and will hold a number. The LastName, FirstName, Address, and City\ncolumns are of type varchar with a maximum length of 255 characters.",
+      "page": 16,
+      "y_coordinates": { "start": 169, "end": 195 }
+    },
+    {
+      "id": 23,
+      "pdfId": 1,
+      "topic": "Defining structure (CREATE and ALTER)",
+      "text": "What are constraints used for?",
+      "answer": "To limit the type of data that can go into a table.",
+      "source_text": "Constraints are used to limit the type of data that can go into a table.",
+      "page": 16,
+      "y_coordinates": { "start": 354, "end": 368 }
+    },
+    {
+      "id": 24,
+      "pdfId": 1,
+      "topic": "Defining structure (CREATE and ALTER)",
+      "text": "What does the ALTER TABLE statement let you do to existing tables?",
+      "answer": "Add, delete, or modify columns in an existing table.",
+      "source_text": "The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.",
+      "page": 17,
+      "y_coordinates": { "start": 86, "end": 100 }
+    },
+    {
+      "id": 25,
+      "pdfId": 1,
+      "topic": "Defining structure (CREATE and ALTER)",
+      "text": "In the example, what SQL clause is used to change the data type of the \"DateOfBirth\" column to year?",
+      "answer": "ALTER COLUMN DateOfBirth year",
+      "source_text": "ALTER COLUMN DateOfBirth year",
+      "page": 18,
+      "y_coordinates": { "start": 310, "end": 322 }
     }
   ]
 }
