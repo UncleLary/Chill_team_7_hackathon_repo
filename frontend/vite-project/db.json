@@ -22,64 +22,180 @@
     }
   ],
   "question": [
-    { "id": 1, "pdfId": 1, "text": "What does SQL stand for?", "answer": "SQL stands for Structured Query Language." },
-    { "id": 2, "pdfId": 1, "text": "What is SQL used for?", "answer": "SQL is used to access and manipulate databases." },
-    { "id": 3, "pdfId": 1, "text": "Is SQL considered a standard language, and by whom?", "answer": "Yes, SQL is an ANSI (American National Standards Institute) standard." },
-
-    { "id": 4, "pdfId": 1, "text": "Name two operations SQL can perform on data.", "answer": "SQL can retrieve data from a database and insert records into a database." },
-    { "id": 5, "pdfId": 1, "text": "What can SQL do in terms of database structure?", "answer": "SQL can create new databases and new tables." },
-    { "id": 6, "pdfId": 1, "text": "Which SQL capability removes data from a database?", "answer": "SQL can delete records from a database." },
-
-    { "id": 7, "pdfId": 1, "text": "What are the two major parts SQL is divided into?", "answer": "SQL is divided into DML (Data Manipulation Language) and DDL (Data Definition Language)." },
-    { "id": 8, "pdfId": 1, "text": "Which command is part of SQL’s DML?", "answer": "SELECT is a DML command that extracts data from a database." },
-    { "id": 9, "pdfId": 1, "text": "Which command is used to create a new table, and what SQL category does it belong to?", "answer": "CREATE TABLE is used to create a new table and belongs to DDL." },
-
-    { "id": 10, "pdfId": 1, "text": "What does the SELECT statement do?", "answer": "The SELECT statement selects data from a database and stores it in a result-set." },
-    { "id": 11, "pdfId": 1, "text": "What does SELECT * do?", "answer": "SELECT * returns all columns from the specified table." },
-    { "id": 12, "pdfId": 1, "text": "Is SQL case-sensitive?", "answer": "No, SQL is not case sensitive." },
-
-    { "id": 13, "pdfId": 1, "text": "What is the purpose of the WHERE clause?", "answer": "The WHERE clause extracts only those records that meet a specified criterion." },
-    { "id": 14, "pdfId": 1, "text": "Which comparison operator means 'not equal' in SQL?", "answer": "The operator <> means 'not equal'." },
-    { "id": 15, "pdfId": 1, "text": "Why must text values be enclosed in quotes in SQL?", "answer": "Because SQL uses single quotes around text values, while numeric values should not be enclosed in quotes." },
-
-    { "id": 16, "pdfId": 1, "text": "When does the AND operator return a record?", "answer": "The AND operator returns a record only if both conditions are true." },
-    { "id": 17, "pdfId": 1, "text": "How does the OR operator differ from AND?", "answer": "The OR operator returns a record if either condition is true." },
-    { "id": 18, "pdfId": 1, "text": "How can AND and OR be combined safely?", "answer": "They can be combined using parentheses to form complex expressions." },
-
-    { "id": 19, "pdfId": 1, "text": "What is the purpose of ORDER BY?", "answer": "ORDER BY sorts the result-set by a specified column." },
-    { "id": 20, "pdfId": 1, "text": "What is the default sort order in SQL?", "answer": "Ascending order is the default." },
-    { "id": 21, "pdfId": 1, "text": "How do you sort results in descending order?", "answer": "You add the DESC keyword after the column name." },
-
-    { "id": 22, "pdfId": 1, "text": "What does the INSERT INTO statement do?", "answer": "It inserts a new row into a table." },
-    { "id": 23, "pdfId": 1, "text": "How many forms of INSERT INTO syntax exist?", "answer": "There are two forms: one specifying only values and one specifying both columns and values." },
-    { "id": 24, "pdfId": 1, "text": "Can you insert values into only some columns of a table?", "answer": "Yes, by specifying the column names in the INSERT INTO statement." },
-
-    { "id": 25, "pdfId": 1, "text": "What is the purpose of the UPDATE statement?", "answer": "To update existing records in a table." },
-    { "id": 26, "pdfId": 1, "text": "Why is the WHERE clause important in an UPDATE statement?", "answer": "Without it, all records in the table will be updated." },
-    { "id": 27, "pdfId": 1, "text": "What happens if the WHERE clause is omitted in an UPDATE?", "answer": "All rows in the table are updated with the new values." },
-
-    { "id": 28, "pdfId": 1, "text": "What does the DELETE statement do?", "answer": "It deletes rows from a table." },
-    { "id": 29, "pdfId": 1, "text": "Why must you be careful when using DELETE?", "answer": "Because deleting records cannot be undone." },
-    { "id": 30, "pdfId": 1, "text": "What happens if DELETE is executed without a WHERE clause?", "answer": "All rows in the table will be deleted." },
-
-    { "id": 31, "pdfId": 1, "text": "What does CREATE DATABASE do?", "answer": "It creates a new database." },
-    { "id": 32, "pdfId": 1, "text": "What does the CREATE TABLE statement define?", "answer": "It creates a new table and defines its columns and data types." },
-    { "id": 33, "pdfId": 1, "text": "What data type is used for the P_Id column in the Persons table example?", "answer": "The P_Id column uses the int data type." },
-
-    { "id": 34, "pdfId": 1, "text": "What does the NOT NULL constraint enforce?", "answer": "It prevents a column from accepting NULL values." },
-    { "id": 35, "pdfId": 1, "text": "What is the purpose of the UNIQUE constraint?", "answer": "It ensures all values in a column are unique." },
-    { "id": 36, "pdfId": 1, "text": "What is the DEFAULT constraint used for?", "answer": "It inserts a default value into a column when no other value is provided." },
-
-    { "id": 37, "pdfId": 1, "text": "What does ALTER TABLE allow you to do?", "answer": "Add, delete, or modify columns in an existing table." },
-    { "id": 38, "pdfId": 1, "text": "How do you add a new column using ALTER TABLE?", "answer": "By writing: ALTER TABLE table_name ADD column_name datatype" },
-    { "id": 39, "pdfId": 1, "text": "How can you delete a column from a table?", "answer": "By using ALTER TABLE table_name DROP COLUMN column_name" },
-
-    { "id": 101, "pdfId": 11, "text": "What is photosynthesis?", "answer": "The process trees use to convert sunlight into energy" },
-    { "id": 102, "pdfId": 11, "text": "How do trees transport water from roots to leaves?", "answer": "Through xylem vessels" },
-    { "id": 103, "pdfId": 12, "text": "What is a snail's shell made of?", "answer": "Calcium carbonate" },
-    { "id": 104, "pdfId": 12, "text": "How do snails move?", "answer": "Using a muscular foot that secretes mucus" },
-    { "id": 105, "pdfId": 13, "text": "What is helicobacter pylori?", "answer": "A bacteria that lives in the stomach and can cause ulcers" },
-    { "id": 106, "pdfId": 13, "text": "How do bacteria reproduce?", "answer": "Through binary fission, splitting into two identical cells" }
-
+    {
+      "title": "SQL basics and the SELECT statement",
+      "questions": [
+        {
+          "question": "What does SQL stand for?",
+          "answer": "SQL stands for Structured Query Language.",
+          "source_text": "•\nSQL stands for Structured Query Language\n•\nSQL lets you access and manipulate databases",
+          "page": 1,
+          "y_coordinates": {
+            "start": 245,
+            "end": 286
+          }
+        },
+        {
+          "question": "What is the SELECT statement used for, and what is the result called?",
+          "answer": "The SELECT statement selects data from a database, and the result is stored in a result table called the result-set.",
+          "source_text": "The SELECT statement is used to select data from a database. The result is stored in a result table, called the\nresult-set.",
+          "page": 2,
+          "y_coordinates": {
+            "start": 161,
+            "end": 188
+          }
+        },
+        {
+          "question": "In a SELECT statement, what does the asterisk (*) indicate?",
+          "answer": "It is a quick way of selecting all columns.",
+          "source_text": "Tip: The asterisk (*) is a quick way of selecting all columns!",
+          "page": 3,
+          "y_coordinates": {
+            "start": 348,
+            "end": 361
+          }
+        }
+      ]
+    },
+    {
+      "title": "Filtering results: DISTINCT, quoting text, and AND logic",
+      "questions": [
+        {
+          "question": "What does the DISTINCT keyword do in a SELECT query?",
+          "answer": "It returns only distinct (different) values.",
+          "source_text": "The DISTINCT keyword can be used to return only distinct (different) values.",
+          "page": 4,
+          "y_coordinates": {
+            "start": 220,
+            "end": 233
+          }
+        },
+        {
+          "question": "In SQL, what kind of quotes are used around text values?",
+          "answer": "SQL uses single quotes around text values (many systems also accept double quotes).",
+          "source_text": "SQL uses single quotes around text values (most database systems will also accept double quotes).",
+          "page": 6,
+          "y_coordinates": {
+            "start": 90,
+            "end": 104
+          }
+        },
+        {
+          "question": "When does the AND operator include a record in the result?",
+          "answer": "A record is included only if both conditions are true.",
+          "source_text": "The AND operator displays a record if both the first condition and the second condition is true.",
+          "page": 7,
+          "y_coordinates": {
+            "start": 115,
+            "end": 129
+          }
+        }
+      ]
+    },
+    {
+      "title": "Sorting query results with ORDER BY",
+      "questions": [
+        {
+          "question": "By default, what order does ORDER BY sort records in?",
+          "answer": "Ascending order.",
+          "source_text": "The ORDER BY keyword sort the records in ascending order by default.",
+          "page": 8,
+          "y_coordinates": {
+            "start": 532,
+            "end": 546
+          }
+        },
+        {
+          "question": "How do you sort results by LastName in descending order (as shown in the example)?",
+          "answer": "Use: SELECT * FROM Persons ORDER BY LastName DESC.",
+          "source_text": "SELECT * FROM Persons\nORDER BY LastName DESC",
+          "page": 9,
+          "y_coordinates": {
+            "start": 686,
+            "end": 713
+          }
+        },
+        {
+          "question": "In the shown sorted result-set, which LastName appears first?",
+          "answer": "Svendson.",
+          "source_text": "2\nSvendson\nTove\nBorgvn 23",
+          "page": 10,
+          "y_coordinates": {
+            "start": 112,
+            "end": 124
+          }
+        }
+      ]
+    },
+    {
+      "title": "Modifying data: INSERT, UPDATE, and DELETE",
+      "questions": [
+        {
+          "question": "What INSERT statement is used to add a new row to the Persons table in the example?",
+          "answer": "INSERT INTO Persons VALUES (4,'Nilsen', 'Johan', 'Bakken 2', 'Stavanger').",
+          "source_text": "INSERT INTO Persons\nVALUES (4,'Nilsen', 'Johan', 'Bakken 2', 'Stavanger')",
+          "page": 11,
+          "y_coordinates": {
+            "start": 112,
+            "end": 138
+          }
+        },
+        {
+          "question": "What warning is given about omitting the WHERE clause in an UPDATE statement?",
+          "answer": "If you omit the WHERE clause, all records will be updated.",
+          "source_text": "�ote: Notice the WHERE clause in the UPDATE syn...ed. If you omit the WHERE clause, all records will be updated!",
+          "page": 12,
+          "y_coordinates": {
+            "start": 213,
+            "end": 241
+          }
+        },
+        {
+          "question": "How can you delete all rows in a table without deleting the table itself?",
+          "answer": "Use DELETE FROM table_name or DELETE * FROM table_name.",
+          "source_text": "DELETE FROM table_name                        or\nDELETE * FROM table_name",
+          "page": 14,
+          "y_coordinates": {
+            "start": 656,
+            "end": 698
+          }
+        }
+      ]
+    },
+    {
+      "title": "Creating and changing structures: CREATE DATABASE/TABLE and ALTER TABLE",
+      "questions": [
+        {
+          "question": "What is the SQL syntax to create a new database?",
+          "answer": "CREATE DATABASE database_name.",
+          "source_text": "SQL CREATE DATABASE Syntax\nCREATE DATABASE database_name",
+          "page": 15,
+          "y_coordinates": {
+            "start": 114,
+            "end": 142
+          }
+        },
+        {
+          "question": "In the Persons table example, what data types are used for P_Id and the name/address fields?",
+          "answer": "P_Id is int. LastName, FirstName, Address, and City are varchar with a maximum length of 255 characters.",
+          "source_text": "The P_Id column is of type int and will hold a ...s are of type varchar with a maximum length of 255 characters.",
+          "page": 16,
+          "y_coordinates": {
+            "start": 155,
+            "end": 182
+          }
+        },
+        {
+          "question": "How do you add a DateOfBirth column to the Persons table, and what type is it?",
+          "answer": "ALTER TABLE Persons ADD DateOfBirth date. The column type is date.",
+          "source_text": "ALTER TABLE Persons\nADD DateOfBirth date",
+          "page": 17,
+          "y_coordinates": {
+            "start": 646,
+            "end": 673
+          }
+        }
+      ]
+    }
   ]
 }
