@@ -2,15 +2,26 @@
   "pdf": [
     {
       "id": 1,
-      "name": "Intro to Trees"
+      "name": "Intro to Trees",
+      "description": "It is an intro"
     },
     {
       "id": 2,
-      "name": "Snail biology"
+      "name": "Snail biology",
+      "description": "It is a lesson"
     },
     {
       "id": 3,
-      "name": "Everything about Bacteria"
+      "name": "Everything about Bacteria",
+      "description": "It is all"
     }
+  ],
+  "question": [
+    { "id": 1, "pdfId": 1, "text": "What is photosynthesis?", "answer": "The process trees use to convert sunlight into energy" },
+    { "id": 2, "pdfId": 1, "text": "How do trees transport water from roots to leaves?", "answer": "Through xylem vessels" },
+    { "id": 3, "pdfId": 2, "text": "What is a snail's shell made of?", "answer": "Calcium carbonate" },
+    { "id": 4, "pdfId": 2, "text": "How do snails move?", "answer": "Using a muscular foot that secretes mucus" },
+    { "id": 5, "pdfId": 3, "text": "What is helicobacter pylori?", "answer": "A bacteria that lives in the stomach and can cause ulcers" },
+    { "id": 6, "pdfId": 3, "text": "How do bacteria reproduce?", "answer": "Through binary fission, splitting into two identical cells" }
   ]
 }
