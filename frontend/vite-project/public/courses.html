@@ -249,9 +249,9 @@
     function addLessonFromServer(d) {
       lessonCounter++;
       const lesson = {
-        id: d.id,
+        id: d.document_id,
         number: lessonCounter,
-        name: d.name
+        name: d.description
       };
       lessons.push(lesson);
       renderLessons();
@@ -291,7 +291,7 @@
     renderLessons();
 
 async function getData() {
-  const response = await fetch('http://localhost:3000/pdf');
+  const response = await fetch('http://localhost/api/documents');
   const data = await response.json();
   data.forEach(d => addLessonFromServer(d));
 }
