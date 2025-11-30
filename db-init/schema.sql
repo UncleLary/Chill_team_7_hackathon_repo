@@ -1,6 +1,6 @@
 -- 1) BAZA WIEDZY
 CREATE TABLE IF NOT EXISTS public.questions (
-  id              uuid PRIMARY KEY,
+  question_id    bigserial PRIMARY KEY,
   question        text NOT NULL,
   correct_answer  text NOT NULL,
   context         text NOT NULL DEFAULT '',
@@ -10,8 +10,8 @@ CREATE TABLE IF NOT EXISTS public.questions (
 
 -- 2) HISTORIA ODPOWIEDZI (wiele prób)
 CREATE TABLE IF NOT EXISTS public.user_answers (
-  id           uuid PRIMARY KEY,
-  question_id  uuid NOT NULL REFERENCES public.questions(id) ON DELETE CASCADE,
+  answer_id    bigserial PRIMARY KEY,
+  question_id  int4,
   learner_key  uuid NOT NULL,
   user_answer  text NOT NULL,
   answered_at  timestamptz NOT NULL DEFAULT now()
@@ -28,9 +28,9 @@ CREATE INDEX IF NOT EXISTS user_answers_learner_q_time_idx
 
 -- 3) PROGRES (1 rekord na learner_key + question)
 CREATE TABLE IF NOT EXISTS public.user_progress (
-  id              uuid PRIMARY KEY,
+  id              bigserial PRIMARY KEY,
   learner_key     uuid NOT NULL,
-  question_id     uuid NOT NULL REFERENCES public.questions(id) ON DELETE CASCADE,
+  question_id     int4,
 
   attempts_count  int NOT NULL DEFAULT 0 CHECK (attempts_count >= 0),
   best_score      int NOT NULL DEFAULT 0 CHECK (best_score BETWEEN 0 AND 100),
