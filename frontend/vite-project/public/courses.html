@@ -195,11 +195,8 @@
 
   <script>
     let lessons = [
-      { id: 1, number: 1, name: 'Introduction to Trees' },
-      { id: 2, number: 2, name: 'Snail Biology and Ecology' },
-      { id: 3, number: 3, name: 'Bacteria: Structure and Function' }
     ];
-    let lessonCounter = 3;
+    let lessonCounter = 0;
 
     const uploadArea = document.getElementById('uploadArea');
     const fileInput = document.getElementById('file-input');
@@ -249,9 +246,24 @@
       renderLessons();
     }
 
+    function addLessonFromServer(d) {
+      lessonCounter++;
+      const lesson = {
+        id: d.id,
+        number: lessonCounter,
+        name: d.name
+      };
+      lessons.push(lesson);
+      renderLessons();
+    }
+
     function deleteLesson(id) {
       lessons = lessons.filter(l => l.id !== id);
       renderLessons();
+    }
+
+    function startCourse(id) {
+      location.href = 'learn.html?' + id;
     }
 
     function renderLessons() {
@@ -267,7 +279,7 @@
             <span class="lesson-name">${lesson.name}</span>
           </div>
           <div class="lesson-actions">
-            <button class="btn-primary">Start</button>
+            <button class="btn-primary" onclick="startCourse(${lesson.id})">Start</button>
             <button class="btn-secondary">Configure</button>
             <button class="btn-danger" onclick="deleteLesson(${lesson.id})">Delete</button>
           </div>
@@ -277,6 +289,13 @@
 
     // Initial render
     renderLessons();
+
+async function getData() {
+  const response = await fetch('http://localhost:3000/pdf');
+  const data = await response.json();
+  data.forEach(d => addLessonFromServer(d));
+}
+getData();
   </script>
 </body>
 </html>
