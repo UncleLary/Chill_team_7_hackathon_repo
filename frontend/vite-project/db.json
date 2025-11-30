@@ -2,26 +2,61 @@
   "pdf": [
     {
       "id": 1,
-      "name": "Intro to Trees",
-      "description": "It is an intro"
-    },
-    {
-      "id": 2,
-      "name": "Snail biology",
-      "description": "It is a lesson"
-    },
-    {
-      "id": 3,
-      "name": "Everything about Bacteria",
-      "description": "It is all"
+      "name": "SQL Basics (from provided excerpt)",
+      "description": "Topics and Q&A extracted from the provided SQL learning text (intro, core statements, operators, constraints, and table/database operations)."
     }
   ],
   "question": [
-    { "id": 1, "pdfId": 1, "text": "What is photosynthesis?", "answer": "The process trees use to convert sunlight into energy" },
-    { "id": 2, "pdfId": 1, "text": "How do trees transport water from roots to leaves?", "answer": "Through xylem vessels" },
-    { "id": 3, "pdfId": 2, "text": "What is a snail's shell made of?", "answer": "Calcium carbonate" },
-    { "id": 4, "pdfId": 2, "text": "How do snails move?", "answer": "Using a muscular foot that secretes mucus" },
-    { "id": 5, "pdfId": 3, "text": "What is helicobacter pylori?", "answer": "A bacteria that lives in the stomach and can cause ulcers" },
-    { "id": 6, "pdfId": 3, "text": "How do bacteria reproduce?", "answer": "Through binary fission, splitting into two identical cells" }
+    { "id": 1, "pdfId": 1, "text": "What does SQL stand for?", "answer": "SQL stands for Structured Query Language." },
+    { "id": 2, "pdfId": 1, "text": "What is SQL used for?", "answer": "SQL is used to access and manipulate databases." },
+    { "id": 3, "pdfId": 1, "text": "Is SQL considered a standard language, and by whom?", "answer": "Yes, SQL is an ANSI (American National Standards Institute) standard." },
+
+    { "id": 4, "pdfId": 1, "text": "Name two operations SQL can perform on data.", "answer": "SQL can retrieve data from a database and insert records into a database." },
+    { "id": 5, "pdfId": 1, "text": "What can SQL do in terms of database structure?", "answer": "SQL can create new databases and new tables." },
+    { "id": 6, "pdfId": 1, "text": "Which SQL capability removes data from a database?", "answer": "SQL can delete records from a database." },
+
+    { "id": 7, "pdfId": 1, "text": "What are the two major parts SQL is divided into?", "answer": "SQL is divided into DML (Data Manipulation Language) and DDL (Data Definition Language)." },
+    { "id": 8, "pdfId": 1, "text": "Which command is part of SQL’s DML?", "answer": "SELECT is a DML command that extracts data from a database." },
+    { "id": 9, "pdfId": 1, "text": "Which command is used to create a new table, and what SQL category does it belong to?", "answer": "CREATE TABLE is used to create a new table and belongs to DDL." },
+
+    { "id": 10, "pdfId": 1, "text": "What does the SELECT statement do?", "answer": "The SELECT statement selects data from a database and stores it in a result-set." },
+    { "id": 11, "pdfId": 1, "text": "What does SELECT * do?", "answer": "SELECT * returns all columns from the specified table." },
+    { "id": 12, "pdfId": 1, "text": "Is SQL case-sensitive?", "answer": "No, SQL is not case sensitive." },
+
+    { "id": 13, "pdfId": 1, "text": "What is the purpose of the WHERE clause?", "answer": "The WHERE clause extracts only those records that meet a specified criterion." },
+    { "id": 14, "pdfId": 1, "text": "Which comparison operator means 'not equal' in SQL?", "answer": "The operator <> means 'not equal'." },
+    { "id": 15, "pdfId": 1, "text": "Why must text values be enclosed in quotes in SQL?", "answer": "Because SQL uses single quotes around text values, while numeric values should not be enclosed in quotes." },
+
+    { "id": 16, "pdfId": 1, "text": "When does the AND operator return a record?", "answer": "The AND operator returns a record only if both conditions are true." },
+    { "id": 17, "pdfId": 1, "text": "How does the OR operator differ from AND?", "answer": "The OR operator returns a record if either condition is true." },
+    { "id": 18, "pdfId": 1, "text": "How can AND and OR be combined safely?", "answer": "They can be combined using parentheses to form complex expressions." },
+
+    { "id": 19, "pdfId": 1, "text": "What is the purpose of ORDER BY?", "answer": "ORDER BY sorts the result-set by a specified column." },
+    { "id": 20, "pdfId": 1, "text": "What is the default sort order in SQL?", "answer": "Ascending order is the default." },
+    { "id": 21, "pdfId": 1, "text": "How do you sort results in descending order?", "answer": "You add the DESC keyword after the column name." },
+
+    { "id": 22, "pdfId": 1, "text": "What does the INSERT INTO statement do?", "answer": "It inserts a new row into a table." },
+    { "id": 23, "pdfId": 1, "text": "How many forms of INSERT INTO syntax exist?", "answer": "There are two forms: one specifying only values and one specifying both columns and values." },
+    { "id": 24, "pdfId": 1, "text": "Can you insert values into only some columns of a table?", "answer": "Yes, by specifying the column names in the INSERT INTO statement." },
+
+    { "id": 25, "pdfId": 1, "text": "What is the purpose of the UPDATE statement?", "answer": "To update existing records in a table." },
+    { "id": 26, "pdfId": 1, "text": "Why is the WHERE clause important in an UPDATE statement?", "answer": "Without it, all records in the table will be updated." },
+    { "id": 27, "pdfId": 1, "text": "What happens if the WHERE clause is omitted in an UPDATE?", "answer": "All rows in the table are updated with the new values." },
+
+    { "id": 28, "pdfId": 1, "text": "What does the DELETE statement do?", "answer": "It deletes rows from a table." },
+    { "id": 29, "pdfId": 1, "text": "Why must you be careful when using DELETE?", "answer": "Because deleting records cannot be undone." },
+    { "id": 30, "pdfId": 1, "text": "What happens if DELETE is executed without a WHERE clause?", "answer": "All rows in the table will be deleted." },
+
+    { "id": 31, "pdfId": 1, "text": "What does CREATE DATABASE do?", "answer": "It creates a new database." },
+    { "id": 32, "pdfId": 1, "text": "What does the CREATE TABLE statement define?", "answer": "It creates a new table and defines its columns and data types." },
+    { "id": 33, "pdfId": 1, "text": "What data type is used for the P_Id column in the Persons table example?", "answer": "The P_Id column uses the int data type." },
+
+    { "id": 34, "pdfId": 1, "text": "What does the NOT NULL constraint enforce?", "answer": "It prevents a column from accepting NULL values." },
+    { "id": 35, "pdfId": 1, "text": "What is the purpose of the UNIQUE constraint?", "answer": "It ensures all values in a column are unique." },
+    { "id": 36, "pdfId": 1, "text": "What is the DEFAULT constraint used for?", "answer": "It inserts a default value into a column when no other value is provided." },
+
+    { "id": 37, "pdfId": 1, "text": "What does ALTER TABLE allow you to do?", "answer": "Add, delete, or modify columns in an existing table." },
+    { "id": 38, "pdfId": 1, "text": "How do you add a new column using ALTER TABLE?", "answer": "By writing: ALTER TABLE table_name ADD column_name datatype" },
+    { "id": 39, "pdfId": 1, "text": "How can you delete a column from a table?", "answer": "By using ALTER TABLE table_name DROP COLUMN column_name" }
   ]
 }
