@@ -4,6 +4,21 @@
       "id": 1,
       "name": "SQL Basics (from provided excerpt)",
       "description": "Topics and Q&A extracted from the provided SQL learning text (intro, core statements, operators, constraints, and table/database operations)."
+    },
+    {
+      "id": 11,
+      "name": "Intro to Trees",
+      "description": "It is an intro"
+    },
+    {
+      "id": 12,
+      "name": "Snail biology",
+      "description": "It is a lesson"
+    },
+    {
+      "id": 13,
+      "name": "Everything about Bacteria",
+      "description": "It is all"
     }
   ],
   "question": [
@@ -57,6 +72,14 @@
 
     { "id": 37, "pdfId": 1, "text": "What does ALTER TABLE allow you to do?", "answer": "Add, delete, or modify columns in an existing table." },
     { "id": 38, "pdfId": 1, "text": "How do you add a new column using ALTER TABLE?", "answer": "By writing: ALTER TABLE table_name ADD column_name datatype" },
-    { "id": 39, "pdfId": 1, "text": "How can you delete a column from a table?", "answer": "By using ALTER TABLE table_name DROP COLUMN column_name" }
+    { "id": 39, "pdfId": 1, "text": "How can you delete a column from a table?", "answer": "By using ALTER TABLE table_name DROP COLUMN column_name" },
+
+    { "id": 101, "pdfId": 11, "text": "What is photosynthesis?", "answer": "The process trees use to convert sunlight into energy" },
+    { "id": 102, "pdfId": 11, "text": "How do trees transport water from roots to leaves?", "answer": "Through xylem vessels" },
+    { "id": 103, "pdfId": 12, "text": "What is a snail's shell made of?", "answer": "Calcium carbonate" },
+    { "id": 104, "pdfId": 12, "text": "How do snails move?", "answer": "Using a muscular foot that secretes mucus" },
+    { "id": 105, "pdfId": 13, "text": "What is helicobacter pylori?", "answer": "A bacteria that lives in the stomach and can cause ulcers" },
+    { "id": 106, "pdfId": 13, "text": "How do bacteria reproduce?", "answer": "Through binary fission, splitting into two identical cells" }
+
   ]
 }
