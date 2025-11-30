@@ -28,7 +28,7 @@ CREATE INDEX IF NOT EXISTS user_answers_learner_q_time_idx
 
 -- 3) PROGRES (1 rekord na learner_key + question)
 CREATE TABLE IF NOT EXISTS public.user_progress (
-  id              bigserial PRIMARY KEY,
+  user_progress_id              bigserial PRIMARY KEY,
   learner_key     uuid NOT NULL,
   question_id     int4,
 
